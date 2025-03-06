@@ -85,7 +85,6 @@ def generate_image(sentence, key_str, max_size=400, output_file="test.png"):
 
 # Example usage
 if __name__ == "__main__":
-    sentence = """Hello World I am a Python Programmer. 
-    """
+    sentence = input("Enter message: ")
     key = input("Enter the encryption key: ")
     generate_image(sentence, key)
