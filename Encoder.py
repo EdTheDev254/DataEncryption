@@ -87,7 +87,7 @@ def generate_image(message, key_str, output_file, max_size=400 ):
 # Example usage
 if __name__ == "__main__":
     #sentence = input("Enter message: ")
-    message = """In a world where digital secrets ensured survival, a renowned cryptographer named Arjun uncovered a mysterious encrypted message. The note, secured with RSA-2048, held clues that could dismantle an oppressive surveillance regime. Armed with deep knowledge of modular arithmetic and prime factorization, Arjun began unraveling the cipher. Layer by layer, he encountered techniques ranging from the simple Caesar cipher to advanced methods like AES-256. Each decrypted segment revealed historical insights and the evolution of cryptographic art. The final message emerged as an elegant mathematical expression, E(m) = c, symbolizing the transformation of plain data into secure communication. But the true secret lay within an embedded command: "if someone decodes this message then the Python code works."
+    message = """Hello World."
     """
     output_file = input("Enter image name with no extension: ")
     key = input("Enter the encryption key: ")
