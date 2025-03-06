@@ -105,7 +105,8 @@ def decode_image(image_path, key_str):
 
 # Example usage
 if __name__ == "__main__":
-    image_path = "test.png"
+    image_path = input("Enter Image name with no Extension: ")
+    image_path = image_path + ".png"
     key = input("Enter the encryption key: ")
     try:
         decoded_string = decode_image(image_path, key)

@@ -34,7 +34,7 @@ def bytes_to_bits(byte_list):
     """Convert bytes to a list of bits."""
     return [int(bit) for byte in byte_list for bit in f'{byte:08b}']
 
-def generate_image(sentence, key_str, max_size=400, output_file="test.png"):
+def generate_image(message, key_str, output_file, max_size=400 ):
     """
     Generate an image from encrypted data.
     
@@ -45,7 +45,7 @@ def generate_image(sentence, key_str, max_size=400, output_file="test.png"):
         output_file (str): File path to save the image.
     """
     # Encrypt the sentence
-    encrypted_data = encrypt_data(sentence, key_str)
+    encrypted_data = encrypt_data(message, key_str)
     
     # Convert to bits
     bits = bytes_to_bits(encrypted_data)
@@ -80,11 +80,15 @@ def generate_image(sentence, key_str, max_size=400, output_file="test.png"):
             pygame.draw.rect(surface, color, rect)
     
     # Save the image
+    output_file = output_file + ".png"
     pygame.image.save(surface, output_file)
     print(f"Image saved as {output_file}")
 
 # Example usage
 if __name__ == "__main__":
-    sentence = input("Enter message: ")
+    #sentence = input("Enter message: ")
+    message = """In a world where digital secrets ensured survival, a renowned cryptographer named Arjun uncovered a mysterious encrypted message. The note, secured with RSA-2048, held clues that could dismantle an oppressive surveillance regime. Armed with deep knowledge of modular arithmetic and prime factorization, Arjun began unraveling the cipher. Layer by layer, he encountered techniques ranging from the simple Caesar cipher to advanced methods like AES-256. Each decrypted segment revealed historical insights and the evolution of cryptographic art. The final message emerged as an elegant mathematical expression, E(m) = c, symbolizing the transformation of plain data into secure communication. But the true secret lay within an embedded command: "if someone decodes this message then the Python code works."
+    """
+    output_file = input("Enter image name with no extension: ")
     key = input("Enter the encryption key: ")
-    generate_image(sentence, key)
+    generate_image(message, key, output_file)
