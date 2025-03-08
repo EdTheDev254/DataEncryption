@@ -3,6 +3,7 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import padding
 from hashlib import sha256
+import os
 
 def gcd(a, b):
     """Calculate the greatest common divisor."""
@@ -105,11 +106,13 @@ def decode_image(image_path, key_str):
 
 # Example usage
 if __name__ == "__main__":
-    image_path = input("Enter Image name with no Extension: ")
-    image_path = image_path + ".png"
-    key = input("Enter the encryption key: ")
-    try:
-        decoded_string = decode_image(image_path, key)
-        print("Decoded string:", decoded_string)
-    except Exception as e:
-        print("Error decoding image:", e)
+    image_path = input("Enter the full path to the image (including extension): ")
+    if not os.path.isfile(image_path):
+        print("Error: The specified file does not exist.")
+    else:
+        key = input("Enter the encryption key: ")
+        try:
+            decoded_string = decode_image(image_path, key)
+            print("Decoded string:", decoded_string)
+        except Exception as e:
+            print("Error decoding image:", e)
